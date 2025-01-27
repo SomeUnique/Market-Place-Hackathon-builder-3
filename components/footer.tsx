@@ -72,7 +72,8 @@ const Footer = () => {
           <h2 className="mb-6 text-xl font-semibold uppercase">Help?</h2>
           <ul className="space-y-4 text-gray-300">
             {[<Link href="/FAQ">FAQ</Link>, "Terms & Conditions", "Reporting", "Documentation", "Support Policy", "Privacy"].map((data, index) => (
-              <li key={index}>
+              <li key={index}> {/*Using index as key
+               // eslint-disable-next-line react/jsx-key*/}
                 <Link href="#" className="hover:text-white hover:underline">
                   {data}
                 </Link>

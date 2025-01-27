@@ -192,9 +192,11 @@ export const Page = () => {
     <div className="relative bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto w-[687px] h-[476px]">
       {/* Profile Image */}
       <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
-        <img
+        <Image
           src="/Ellipse 6.png"
           alt="Client Image"
+          width={133}
+          height={134}
           className="w-[133px] h-[134px] rounded-full border-4 border-white "
         />
       </div>

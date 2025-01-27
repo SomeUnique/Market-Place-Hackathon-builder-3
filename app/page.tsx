@@ -10,7 +10,7 @@ export default function Home() {
   <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center lg:items-start ">
     {/* Left Content */}
     <div className="lg:w-1/2 space-y-6 mt-28 ">
-      <p className="text-[#FF9F0D] font-semibold text-lg">It's Quick & Amusing!</p>
+      <p className="text-[#FF9F0D] font-semibold text-lg">It&apos;s Quick & Amusing!</p>
       <h1 className="text-5xl font-bold leading-tight">
         <span className="text-[#FF9F0D]">The</span> Art of Speed <br />
         Food Quality
@@ -25,7 +25,7 @@ export default function Home() {
 
     {/* Right Content */}
     <div className="relative w-[878px] h-[670px]  ">
-      <img
+      <Image
         src="/Image.png"
         alt="Food Plate"
         className="rounded  md:ml-20 md:mr-0 w-[800px] h-[600px] object-cover shadow-lg"
@@ -68,19 +68,19 @@ export default function Home() {
 
     {/* Image Section */}
     <div className="lg:w-1/2 grid grid-rows-2 gap-6">
-      <img
+      <Image
         src="/foodpic1.jpeg"
         alt="Large Food Item"
         className="rounded-lg object-cover w-[660px] h-[330px]"
       />
       <div className="grid grid-cols-2 ">
-        <img
+        <Image
           src="/foodpic2.jpeg"
           alt="Small Food Item 1"
           className="rounded-sm object-cover w-[350px] h-[194px]"
         />
         <div className="mr-20">
-        <img
+        <Image
           src="/foodpic3.jpeg"
           alt="Small Food Item 2"
           className="rounded-sm object-cover w-[322px] h-[194px]"
@@ -105,7 +105,7 @@ export default function Home() {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-12 text-center ml-5">
       {/* Food Item 1 */}
       <div className="relative group ">
-        <img
+        <Image
           src="/food1.png"
           alt="Food Item 1"
           className="rounded-sm object-cover w-[305px] h-[328px]"
@@ -120,7 +120,7 @@ export default function Home() {
 
       {/* Food Item 2 */}
       <div>
-        <img
+        <Image
           src="/food4.png"
           alt="Food Item 2"
           className="rounded-sm object-cover w-[305px] h-[329px]"
@@ -129,7 +129,7 @@ export default function Home() {
 
       {/* Food Item 3 */}
       <div>
-        <img
+        <Image
           src="/food3.png"
           alt="Food Item 3"
           className="rounded-sm object-cover w-[305px] h-[329px]"
@@ -275,7 +275,7 @@ export default function Home() {
     <div className="grid md:grid-cols-2 gap-10 items-start">
       {/* Left Image */}
       <div className="flex justify-center">
-        <img
+        <Image
           src="/unsplash-5.png" /* Replace with your image path */
           alt="Salad"
           className=" object-cover w-[366px] h-[362px] "
@@ -283,7 +283,7 @@ export default function Home() {
       </div>
 
       {/* Right Menu List */}
-      <div className="space-y-6 flex flec--2">
+      <div className="space-y-6 flex flex-2">
         {[
           { name: "Lettuce Leaf", price: "12.55" },
           { name: "Fresh Breakfast", price: "14.55" },

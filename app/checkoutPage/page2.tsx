@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Image from 'next/image'
 export const Page2 = () => {
   return (
     <div>
@@ -10,7 +10,7 @@ export const Page2 = () => {
       {/*<!-- Item -->*/}
       <div className='border-[#E0E0E0] border-[2px] w-[424px] h-[700px]  mb-40'>
       <div className="flex items-center gap-4 border-b pb-4 mt-10 ml-10">
-        <img src="/checkout.png" alt="Chicken Tikka Kabab" className="w-[83px] h-[88px]  object-cover" />
+        <Image src="/checkout.png" alt="Chicken Tikka Kabab" className="w-[83px] h-[88px]  object-cover"></Image>
         <div className="flex-1">
           <h2 className="font-semibold text-lg">Chicken Tikka Kabab</h2>
           <p className="text-sm text-[#4F4F4F]">150 gm net</p>
@@ -18,7 +18,7 @@ export const Page2 = () => {
         </div>
       </div>
       <div className="flex items-center gap-4 border-b pb-4 mt-5 ml-10">
-        <img src="/checkout.png" alt="Chicken Tikka Kabab" className="w-[83px] h-[88px] object-cover" />
+        <Image src="/checkout.png" alt="Chicken Tikka Kabab" className="w-[83px] h-[88px] object-cover" />
         <div className="flex-1">
           <h2 className="font-semibold text-lg">Chicken Tikka Kabab</h2>
           <p className="text-sm text-[#4F4F4F]">150 gm net</p>
@@ -26,7 +26,7 @@ export const Page2 = () => {
         </div>
       </div>
       <div className="flex items-center gap-4 border-b pb-4 mt-5 ml-10">
-        <img src="/checkout.png" alt="Chicken Tikka Kabab" className="w-[83px] h-[88px]  object-cover" />
+        <Image src="/checkout.png" alt="Chicken Tikka Kabab" className="w-[83px] h-[88px]  object-cover" />
         <div className="flex-1">
           <h2 className="font-semibold text-lg">Chicken Tikka Kabab</h2>
           <p className="text-sm text-[#4F4F4F]">150 gm net</p>
