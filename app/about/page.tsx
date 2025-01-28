@@ -2,7 +2,7 @@ import React from 'react'
 import Common from '../../components/common'
 import Image from 'next/image';
 import { PiQuotesThin } from "react-icons/pi";
-export const About = () => {
+ const About = () => {
   return (
     <div className='bg-white w-full md:max-w-[1920px] mb-16'>
       <Common title='About Us' subtitle='About' />
