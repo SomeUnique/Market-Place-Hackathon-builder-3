@@ -11,8 +11,8 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className='md:max-w-[1920px] bg-black'>
-            <div className='flex justify-between items-center h-[90px] w-full mx-auto px-4 sm:px-6 lg:px-6'>
+        <header className='md:max-w-full bg-black '>
+            <div className='flex justify-between items-center h-[90px] w-full mx-auto px-4 sm:px-6 lg:px-6 '>
                 {/* logo*/}
                 <div className='flex items-center'>
                     <h1 className='font-bold text-2xl text-white'>Food</h1>

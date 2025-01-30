@@ -1,3 +1,5 @@
+import { sources } from "next/dist/compiled/webpack/webpack";
+
 export default {
     name: 'food',
     type: 'document',
@@ -7,6 +9,14 @@ export default {
         name: 'name',
         type: 'string',
         title: 'Food Name',
+      },
+      {
+        name:'slug',
+        type:'slug',
+        title:'slug',
+        options:{
+           source: 'name'
+        }
       },
       {
         name: 'category',

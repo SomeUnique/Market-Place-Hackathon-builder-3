@@ -266,9 +266,9 @@ export default function Home() {
 {/*Seventh part */}
 
 <div className="bg-black text-white py-12">
-  <div className="max-w-7xl mx-auto px-6">
+  <div className="max-w-7xl mx-auto px-6 ">
     {/* Section Header */}
-    <div className="text-center mb-12">
+    <div className="text-center my-20">
       <h3 className="text-[#FF9F0D] text-xl font-medium">Choose & Pick</h3>
       <h2 className="text-4xl font-bold">
         From <span className="text-[#FF9F0D]">Our Menu</span>
@@ -276,11 +276,11 @@ export default function Home() {
     </div>
 
     {/* Menu Tabs */}
-    <div className="flex justify-center gap-6 text-gray-300 mb-10">
+    <div className="flex justify-center gap-6 text-gray-300 ">
       {["Breakfast", "Lunch", "Dinner", "Dessert", "Drink", "Snack", "Soups"].map((tab, index) => (
         <button
           key={index}
-          className={`font-medium hover:text-orange-400 ${
+          className={`font-medium hover:text-[#FF9F0D]${
             tab === "Breakfast" ? "text-[#FF9F0D]" : ""
           }`}
         >
@@ -473,51 +473,77 @@ export default function Home() {
     </div>
   </div>
 
-
 {/* Teenth part */}
-
-  <div className="relative w-full h-[400px] md:h-[500px] bg-black text-white">
   {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{
-      backgroundImage: "url('/path-to-image.jpg')",
-    }}
-  >
-    <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+  <div className="mt-20">
+    <Image
+     src="/another.jpg"
+     alt=""
+     width={1918}
+     height={558}
+     className='w-full'>
+    </Image>
   </div>
 
-  {/* Content Section */}
-  <div className="relative z-10 flex items-center h-full px-6 md:px-16">
-    <div className="max-w-2xl">
-      {/* Subtitle */}
-      <h3 className="text-orange-400 italic text-lg">Restaurant Home Process</h3>
 
-      {/* Title */}
-      <h2 className="text-3xl md:text-5xl font-bold mt-3">
-        <span className="text-orange-500">We</span> Document Every Food Bean Process until it is saved
-      </h2>
+  {/* Elevinth part */}
+  <div className="bg-black text-white mt-40 ">
+  {/* Heading Section */}
+  <div className="text-center mb-10">
+    <h3 className="text-[#FF9F0D] italic text-lg">Blog Post</h3>
+    <h2 className="text-3xl md:text-4xl font-bold">
+      <span className="text-[#FF9F0D]">Latest</span> News & Blog
+    </h2>
+  </div>
 
-      {/* Description */}
-      <p className="text-gray-300 mt-4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque diam pellentesque bibendum non dui volutpat
-        fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum.
-      </p>
+  {/* Blog Cards */}
+  <div className="container mx-auto px-24 grid md:grid-cols-3 gap-4">
+    {/* Card 1 */}
+    <div className="w-[424px] h-[569px] border border-white rounded-lg overflow-hidden ">
+      <Image src="/food4.png" alt="Burger"
+      width={424}
+      height={569} 
+      className="w-full h-[249px] object-cover" />
+      <div className="p-10">
+        <p className="text-[#FF9F0D] text-sm font-bold mt-26">10 February 2023</p>
+        <h3 className="flex text-1xl font-semibold mt-2 leading-tight">Pellentesque Non Effictur Mi Aliquam Convallis Mi Quis</h3>
+        <Link href="/bloglist" className="flex items-center gap-2 mt-4 text-gray-400 hover:text-orange-500 transition">
+          Learn More <span className="text-xl">→</span>
+        </Link>
+      </div>
+    </div>
 
-      {/* Buttons */}
-      <div className="mt-6 flex items-center gap-4">
-        <button className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-orange-500 hover:text-white transition">
-          Read More
-        </button>
-        <button className="flex items-center gap-2 px-6 py-3 border border-white rounded-full hover:bg-orange-500 transition">
-          <span className="w-8 h-8 flex items-center justify-center bg-orange-500 text-white rounded-full">▶</span>
-          Play Video
-        </button>
+    {/* Card 2 */}
+    <div className="w-[424px] h-[569px] border border-white rounded-lg overflow-hidden shadow-lg">
+      <Image src="/foodpic4.png" alt="Pizza"
+      width={424}
+      height={569}
+      className="w-full h-[249px] object-cover" />
+      <div className="p-10">
+        <p className="text-[#FF9F0D] text-sm font-bold mt-26">10 February 2023</p>
+        <h3 className="text-lg font-semibold mt-2 leading-tight">Morbi Sodales Tellus Elit, In Blandit Risus Suscipit A</h3>
+        <Link href="/bloglist" className="flex items-center gap-2 mt-4 text-gray-400 hover:text-orange-500 transition">
+          Learn More <span className="text-xl">→</span>
+        </Link>
+      </div>
+    </div>
+
+    {/* Card 3 */}
+    <div className="w-[424px] h-[569px] border border-white rounded-lg overflow-hidden shadow-lg mb-40">
+      <Image src="/unsplash-1.png" alt="Tacos" 
+      width={424}
+      height={569}
+      className="w-full h-[249px] object-cover" />
+      <div className="p-10">
+        <p className="text-[#FF9F0D] text-sm font-bold mt-26">10 February 2023</p>
+        <h3 className="text-lg font-semibold mt-2 leading-tight">Curabitur rutrum velit ac congue malesuada</h3>
+        <Link href="/bloglist" className="flex items-center gap-2 mt-4 text-gray-400 hover:text-orange-500 transition">
+          Learn More <span className="text-xl">→</span>
+        </Link>
       </div>
     </div>
   </div>
 </div>
-
 
 
 

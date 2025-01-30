@@ -3,9 +3,10 @@ import Common from '../../components/common'
 import Link from 'next/link' 
 const page = () => {
   return (
-    <div  className='bg-white w-full md:max-w-[1920px] mb-16'>
+    <div  className='bg-white w-full  mb-16'>
+        <div className='w-full'>
         <Common title='404 Error' subtitle='404'/>
-
+        </div>
         <h1 className='text-[94px] font-bold text-[#FF9F0D] mt-32 m text-center'>
             404
         </h1>

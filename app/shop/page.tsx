@@ -64,14 +64,7 @@ export default async function ShopPage() {
                         </span>
                       )}
                     </div>
-                    <button
-                      className={`w-full py-2 px-4 text-white font-semibold rounded-lg ${
-                        food.available ? "bg-[#FF9F0D]" : "bg-gray-400 cursor-not-allowed"
-                      }`}
-                      disabled={!food.available}
-                    >
-                      Add to Cart
-                    </button>
+                    
                   </div>
                 </div>
               </Link>
