@@ -61,7 +61,7 @@ const Header = () => {
                 <div className='flex gap-3'>
                     <IoSearch size={24} className='text-white' />
                     <Link href="/signup"><AiOutlineUser size={24} className='text-white' /></Link>
-                    <Link href="/checkoutPage"><BiSolidBasket size={24} className='text-white' /></Link>
+                    <Link href="/Signin"><BiSolidBasket size={24} className='text-white' /></Link>
                 </div>
 
             </div>

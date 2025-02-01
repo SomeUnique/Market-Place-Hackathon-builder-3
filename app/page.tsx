@@ -20,7 +20,7 @@ export default function Home() {
       <p className="text-gray-400">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius sed pharetra dictum neque massa congue.
       </p>
-      <button className="mt-4 bg-[#FF9F0D] text-black px-6 py-3 rounded-full hover:bg-orange-600 w-[190px] h-[60px]">
+      <button className="mt-4 bg-[#FF9F0D] text-black px-6 py-3 rounded-full hover:bg-orange-400 w-[190px] h-[60px]">
         See Menu
       </button>
     </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import { PiClockClockwiseBold } from "react-icons/pi";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaPinterest } from "react-icons/fa";
 
@@ -57,7 +56,7 @@ const Footer = () => {
         <div>
           <h2 className="mb-6 text-xl font-semibold uppercase">Useful Links</h2>
           <ul className="space-y-4 text-gray-300">
-            {["About", "News", "Partner", "Team", "Menu", "Contact"].map((data, index) => (
+            {[<Link href="/about">About</Link>,"News", "Partner", <Link href="/chef">Team</Link>, <Link href="/menu">Menu</Link>,<Link href="/404error">Contact</Link>].map((data, index) => (
               <li key={index}>
                 <Link href="#" className="hover:text-white hover:underline">
                   {data}

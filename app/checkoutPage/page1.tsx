@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 
 const page1 = () => {
@@ -114,12 +115,12 @@ const page1 = () => {
 
         {/* Buttons */}
         <div className="mt-6 flex justify-between gap-10 my-24">
-            <button
+            <Link href="/shoppingcart"><button
                 type="button"
                 className="w-[424px] h-[56px] px-4 py-2 text-gray-700 gap-2 border-gray-300 border-[2px]  hover:bg-gray-300"
             >
                 Back to cart
-            </button>
+            </button></Link>
             <button
                 type="submit"
                 className=" w-[424px] h-[56px] px-6 py-2 gap-2 text-white bg-[#FF9f0D] "

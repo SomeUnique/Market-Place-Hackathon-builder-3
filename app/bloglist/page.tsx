@@ -7,7 +7,7 @@ const page= () => {
   return (
     <div className='md:max-w-[1920px]'>
         <Common title="Blog List" subtitle="Blog"/>
-        <div className='md:max-w-[1320px] gap-2 flex flex-col md:flex-row'>
+        <div className='md:max-w-[1320px] gap-40 flex flex-col md:flex-row'>
         <Leftside/>
         <Rightside/>
         </div>

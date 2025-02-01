@@ -26,7 +26,7 @@ const Leftside = () => {
            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, 
            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et 
            dolore magna aliquyam erat</p>
-       <button className='w-[172px] h-[52px] text-[#FF9F0D] border-[#FF9F0D] border-[2px] rounded-sm my-8 px-8'>Read More </button>
+       <Link href="/blogdetail"><button className='w-[172px] h-[52px] text-[#FF9F0D] border-[#FF9F0D] border-[2px] rounded-sm my-8 px-8'>Read More </button></Link>
     
        {/* second div */}
        <div className='md:max-w-[871px] h-[520px] bg-[url(/foodpic4.png)] bg-cover bg-center'>
@@ -45,7 +45,7 @@ const Leftside = () => {
            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, 
            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et 
            dolore magna aliquyam erat</p>
-       <button className='w-[172px] h-[52px] text-[#FF9F0D] border-[#FF9F0D] border-[2px] rounded-sm my-8 px-8'>Read More </button>
+           <Link href="/blogdetail"><button className='w-[172px] h-[52px] text-[#FF9F0D] border-[#FF9F0D] border-[2px] rounded-sm my-8 px-8'>Read More </button></Link>
     
       {/* third div */}
        <div className='md:max-w-[871px] h-[520px] bg-[url(/foodpic5.png)] bg-cover bg-center'>
@@ -64,8 +64,8 @@ const Leftside = () => {
            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, 
            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et 
            dolore magna aliquyam erat</p>
-       <button className='w-[172px] h-[52px] text-[#FF9F0D] border-[#FF9F0D] border-[2px] rounded-sm my-8 px-8'>Read More </button>
-
+           <Link href="/blogdetail"><button className='w-[172px] h-[52px] text-[#FF9F0D] border-[#FF9F0D] border-[2px] rounded-sm my-8 px-8'>Read More </button>
+           </Link>
        {/* fourth div */}
        <div className='md:max-w-[871px] h-[520px] bg-[url(/foodpic3.jpeg)] bg-cover bg-center'>
         <button className='w-[60px] h-[60px] bg-[#FF9f0D] text-white rounded-[6px] ml-[20px] mt-[20px]'>14 Feb</button>
@@ -83,7 +83,7 @@ const Leftside = () => {
            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, 
            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et 
            dolore magna aliquyam erat</p>
-       <button className='w-[172px] h-[52px] text-[#FF9F0D] border-[#FF9F0D] border-[2px] rounded-sm my-8 px-8'>Read More </button>
+           <Link href="/blogdetail"><button className='w-[172px] h-[52px] text-[#FF9F0D] border-[#FF9F0D] border-[2px] rounded-sm my-8 px-8'>Read More </button></Link>
        <div className='md:max-w-[306px] h-[51px] bg-[url(/pagination.png)] flex justify-center my-11 ml-60 mb-32'></div>
     
     </div>
