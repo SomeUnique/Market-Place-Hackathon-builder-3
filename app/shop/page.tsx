@@ -1,13 +1,13 @@
-"use client"; // Add this at the very top of the file
+"use client";
 
 import { groq } from "next-sanity";
 import Common from "../../components/common";
-import SearchFilter from "../../components/SearchFilter";
 import { client } from "../../sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
+import SearchFilter from "../../components/SearchFilter";
 
 export default function ShopPage() {
   const query = groq`*[_type == "food"]{
@@ -21,26 +21,25 @@ export default function ShopPage() {
     }`;
 
   const [foods, setFoods] = useState<any[]>([]);
+  const [filteredFoods, setFilteredFoods] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  // Fetch data on the client side
-  useState(() => {
+  useEffect(() => {
     async function fetchData() {
       const result = await client.fetch(query);
       setFoods(result);
+      setFilteredFoods(result); // Set filtered foods initially
       setLoading(false);
     }
     fetchData();
-  },);
+  }, []);
 
-  // Pagination state
+  // Items per page & pagination
   const itemsPerPage = 6;
-  const totalPages = Math.ceil(foods.length / itemsPerPage);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  // Paginated data
+  const totalPages = Math.ceil(filteredFoods.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = foods.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = filteredFoods.slice(startIndex, startIndex + itemsPerPage);
 
   // Handle page change
   const handlePageChange = (page: number) => {
@@ -53,17 +52,13 @@ export default function ShopPage() {
     return <div>Loading...</div>;
   }
 
-  if (!foods || foods.length === 0) {
-    return <div>No food items found!</div>;
-  }
-
   return (
     <div>
       <Common title="Our Shop" subtitle="shop" />
-      
+
       {/* Search & Filter Component */}
-      <div className="container mx-auto mt-5 ml-96">
-        <SearchFilter foods={foods} />
+      <div className="container mx-auto mt-5">
+        <SearchFilter foods={foods} onFilterChange={setFilteredFoods} />
       </div>
 
       {/* Food List */}
@@ -84,7 +79,6 @@ export default function ShopPage() {
                 <div className="p-2">
                   <h2 className="text-xl font-bold mt-4 mb-2">{food.name}</h2>
                   <p className="text-sm text-gray-600">{food.category}</p>
-                  <p className="text-sm text-gray-600">{food.description}</p>
                   <div className="flex items-center space-x-2 mt-2">
                     <span className="text-xl font-bold text-[#FF9F0D]">${food.price}</span>
                     {food.originalPrice && (
@@ -98,12 +92,10 @@ export default function ShopPage() {
         </div>
       </div>
 
-      {/* Pagination Component */}
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      {/* Pagination */}
+      {filteredFoods.length > itemsPerPage && (
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+      )}
     </div>
   );
 }

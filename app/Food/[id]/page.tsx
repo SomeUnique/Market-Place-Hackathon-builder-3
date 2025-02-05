@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 import { client, urlFor } from "../../../sanity/lib/client";
 import Common from "../../../components/common";
 import Image from "next/image";
@@ -10,10 +11,12 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa6";
 import { AiFillInstagram } from "react-icons/ai";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
+import Swal from "sweetalert2";
 
 
-const FoodPage = async ({ params: { id } }: { params: { id: string } }) => {
+const FoodPage = ({ params: { id } }: { params: { id: string } }) => {
   console.log("Fetching Food ID:", id);
+  const [food,setFood]= useState() as any;
 
 
   type Food = {
@@ -33,18 +36,44 @@ const FoodPage = async ({ params: { id } }: { params: { id: string } }) => {
     description,
     category,
     image,
-  }`;
+    }`;
+    
+    const fetchData = async()=>{
 
-  const food:Food = await client.fetch(query, { id });
-  console.log("food: ", food);
-
-  if (!food || !food._id) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen text-center">
+      const foodGet:Food = await client.fetch(query, { id });
+      console.log("foodGet: ", foodGet);
+      setFood(foodGet)
+      
+      if (!foodGet || !foodGet?._id) {
+        return (
+          <div className="flex flex-col items-center justify-center min-h-screen text-center">
         <h1 className="text-2xl font-bold text-red-500">Food not found</h1>
       </div>
     );
   }
+}
+  useEffect(()=>{
+    fetchData()
+},[])
+
+   const handleAddToCart = (e:any) => {
+    console.log('working...')
+      e.preventDefault();
+      Swal.fire({
+        position: 'top-start',
+        icon: 'success',
+        title: `${food?.name} added to cart`,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      const cartItems = JSON.parse(localStorage.getItem("carts") || "[]")
+      if(cartItems){
+        console.log('cartItems: ', cartItems);
+      return  localStorage.setItem("carts",JSON.stringify([...cartItems,food]))
+      }
+      localStorage.setItem("carts",JSON.stringify(food))
+    };
+  
 
   return (
     <div className="bg-white w-full md:max-w-[1920px] mb-16">
@@ -54,32 +83,32 @@ const FoodPage = async ({ params: { id } }: { params: { id: string } }) => {
         {/* Left Side - Images */}
         <div className="flex gap-6">
           <div className="flex flex-col gap-6">
-            {food.image && (
+            {food?.image && (
               <>
               <Image
                 src="/Rectangle 8884.png"
-                alt={food.name}
+                alt={food?.name}
                 width={132}
                 height={129}
                 className="w-20 h-20 object-cover cursor-pointer border border-gray-300"
               />
               <Image
                 src= "/Rectangle 8885.png"
-                alt={food.name}
+                alt={food?.name}
                 width={132}
                 height={129}
                 className="w-20 h-20 object-cover cursor-pointer border border-gray-300"
               />
               <Image
                 src="/Rectangle 8886.png"
-                alt={food.name}
+                alt={food?.name}
                 width={132}
                 height={129}
                 className="w-20 h-20 object-cover cursor-pointer border border-gray-300"
               />
               <Image
                 src="/Rectangle 8887.png"
-                alt={food.name}
+                alt={food?.name}
                 width={132}
                 height={129}
                 className="w-20 h-20 object-cover cursor-pointer border border-gray-300"
@@ -89,10 +118,10 @@ const FoodPage = async ({ params: { id } }: { params: { id: string } }) => {
             }
           </div>
           <div>
-            {food.image && (
+            {food?.image && (
               <Image 
-              src={food.image ? urlFor(food.image): "/default-image.png"}
-              alt={food.name} width={491} height={596} className="w-full h-[400px] object-cover " />
+              src={food?.image ? urlFor(food?.image): "/default-image.png"}
+              alt={food?.name} width={491} height={596} className="w-full h-[400px] object-cover " />
             )}
           </div>
         </div>
@@ -100,25 +129,19 @@ const FoodPage = async ({ params: { id } }: { params: { id: string } }) => {
         {/* Right Side - Product Details */}
         <div>
           <span className="bg-[#FF9F0D] text-white px-3 py-1 text-sm font-semibold rounded-md">In stock</span>
-          <h1 className="text-3xl font-bold mt-3">{food.name}</h1>
-          <p className="text-gray-500 mt-2">{food.description}</p>
+          <h1 className="text-3xl font-bold mt-3">{food?.name}</h1>
+          <p className="text-gray-500 mt-2">{food?.description}</p>
           <div className="flex border-b border-gray-200 mt-5"></div>
 
           <div className="flex items-center gap-3 mt-4">
-            <p className="text-2xl font-semibold">${food.price}</p>
+            <p className="text-2xl font-semibold">${food?.price}</p>
           </div>
 
           <div className="flex items-center mt-6 gap-4">
-            <div className="flex items-center border border-gray-300 rounded-md">
-              <button className="px-3 py-2 text-xl border-r border-gray-300">-</button>
-              <span className="px-4 py-2 text-lg">1</span>
-              <button className="px-3 py-2 text-xl border-l border-gray-300">+</button>
-            </div>
-            <Link href="/shoppingcart">
-              <button className="bg-[#FF9F0D] text-white px-6 py-3 text-lg font-semibold hover:bg-orange-400 transition">
+              <button onClick={handleAddToCart} className="bg-[#FF9F0D] text-white px-6 py-3 text-lg font-semibold hover:bg-orange-400 transition">
                 Add to cart
               </button>
-            </Link>
+            {/* </Link> */}
           </div>
 
           <div className="flex border-b border-gray-200 mt-5"></div>
@@ -132,7 +155,7 @@ const FoodPage = async ({ params: { id } }: { params: { id: string } }) => {
           </div>
 {/* Product Details */}
           <div className="mt-4 text-gray-500 text-sm">
-            <p><span className="font-semibold">Category:</span> {food.category || "N/A"}</p>
+            <p><span className="font-semibold">Category:</span> {food?.category || "N/A"}</p>
             <p><span className="font-semibold">Tag:</span> Our Shop</p>
           </div>
           {/* Social Media Share */}
