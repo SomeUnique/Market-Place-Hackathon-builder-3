@@ -7,7 +7,7 @@ import { Food } from "../../types/food";
 import Image from "next/image";
 import { urlFor } from "../../sanity/lib/image";
 import {CgChevronRight} from "react-icons/cg"
-import { getCartItems } from "../File/page";
+import { getCartItems } from "../File/actions";
 import Swal from "sweetalert2";
 import { client } from '../../sanity/lib/client';
 

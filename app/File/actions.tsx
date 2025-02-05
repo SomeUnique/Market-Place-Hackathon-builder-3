@@ -2,7 +2,7 @@
 import React from 'react'
 import { Food } from '../../types/food'
 
-export const AddToCart = (food:Food) => {
+export const addToCart = (food:Food) => {
   const cart: Food[] = JSON.parse(localStorage.getItem('carts')||'[]')
   const existingProductIndex = cart.findIndex(item => item._id === food._id)
 
